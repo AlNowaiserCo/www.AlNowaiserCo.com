@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Force \"C:\\\\Users\\\\User\\\\OneDrive\\\\Desktop\\\\website 0\" | Select-Object Name, Length; \"---node---\"; \\(Get-Command node -ErrorAction SilentlyContinue\\).Source; node -v; npm -v)",
+      "PowerShell(npm install --no-fund --no-audit)",
+      "PowerShell(npm approve-scripts --allow-scripts-pending 2>$null)",
+      "PowerShell(npm run build)",
+      "PowerShell($p = Start-Process npm -ArgumentList 'run','preview','--','--port','4317' -PassThru -NoNewWindow -RedirectStandardOutput \"$env:TEMP\\\\anw_preview.log\" -RedirectStandardError \"$env:TEMP\\\\anw_preview_err.log\"; Start-Sleep -Seconds 4; try { $r = Invoke-WebRequest \"http://localhost:4317/\" -UseBasicParsing -TimeoutSec 10; \"STATUS=$\\($r.StatusCode\\)\"; if \\($r.Content -match 'id=\"root\"'\\) { \"ROOT_DIV_OK\" }; if \\($r.Content -match 'Al-Nowaiser'\\) { \"TITLE_OK\" } } catch { \"ERR: $_\" } finally { Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue }; \"--- preview log ---\"; Get-Content \"$env:TEMP\\\\anw_preview.log\" -ErrorAction SilentlyContinue)",
+      "Bash(node node_modules/vite/bin/vite.js preview --port 4317)",
+      "PowerShell(Start-Sleep -Seconds 3; try { $r = Invoke-WebRequest \"http://localhost:4317/\" -UseBasicParsing -TimeoutSec 10; \"STATUS=$\\($r.StatusCode\\)\"; if \\($r.Content -match 'id=\"root\"'\\) { \"ROOT_DIV_OK\" }; if \\($r.Content -match 'Al-Nowaiser'\\) { \"TITLE_OK\" }; $js = Invoke-WebRequest \"http://localhost:4317/assets/index-C3lKNfSB.js\" -UseBasicParsing -TimeoutSec 10; \"JS_STATUS=$\\($js.StatusCode\\) BYTES=$\\($js.RawContentLength\\)\" } catch { \"ERR: $_\" })",
+      "Bash(kill %b6f445d24)",
+      "Bash(node node_modules/vite/bin/vite.js --host --port 5173)",
+      "PowerShell(try { $r = Invoke-WebRequest \"http://localhost:5173/\" -UseBasicParsing -TimeoutSec 8; \"STATUS=$\\($r.StatusCode\\)\" } catch { \"ERR: $_\" })",
+      "PowerShell(Add-Type -AssemblyName System.Windows.Forms; $img = [System.Windows.Forms.Clipboard]::GetImage\\(\\); if \\($img\\) { $out = \"C:\\\\Users\\\\User\\\\OneDrive\\\\Desktop\\\\website 0\\\\public\\\\logo.png\"; $img.Save\\($out, [System.Drawing.Imaging.ImageFormat]::Png\\); \"SAVED $out \\($\\($img.Width\\)x$\\($img.Height\\)\\)\" } else { \"NO_IMAGE_ON_CLIPBOARD\" })",
+      "PowerShell($roots = @\\(\"$env:USERPROFILE\\\\.claude\",\"$env:APPDATA\\\\claude\",\"$env:LOCALAPPDATA\\\\claude\",\"$env:LOCALAPPDATA\\\\Temp\\\\claude\",\"C:\\\\Users\\\\User\\\\OneDrive\\\\Desktop\\\\website 0\\\\.claude\"\\); foreach \\($r in $roots\\) { if \\(Test-Path $r\\) { Get-ChildItem $r -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -gt \\(Get-Date\\).AddMinutes\\(-10\\) -and $_.Extension -match '\\\\.\\(png|jpg|jpeg|webp|bin\\)$' } | Select-Object FullName, Length, LastWriteTime } })",
+      "Bash(kill %bfoqknhtb)",
+      "mcp__Claude_Preview__preview_start",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(kill %b05v5cbrr)",
+      "Bash(kill %bf003j2mo)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //F //PID 11584)",
+      "PowerShell(Add-Type -AssemblyName System.Windows.Forms,System.Drawing; $img = [System.Windows.Forms.Clipboard]::GetImage\\(\\); if \\($img\\) { $out = \"C:\\\\Users\\\\User\\\\OneDrive\\\\Desktop\\\\website 0\\\\public\\\\hero.jpg\"; $img.Save\\($out, [System.Drawing.Imaging.ImageFormat]::Jpeg\\); \"SAVED $out \\($\\($img.Width\\)x$\\($img.Height\\)\\)\" } else { \"NO_IMAGE_ON_CLIPBOARD\" })",
+      "Bash(curl -s -o /dev/null -w \"hero.jpg → HTTP %{http_code}, %{size_download} bytes, %{content_type}\\\\n\" http://localhost:5173/hero.jpg)",
+      "Bash(py --version)",
+      "Bash(python -c \"import PIL; print\\('PIL', PIL.__version__\\)\")",
+      "Bash(magick -version)",
+      "Bash(convert -version)",
+      "Bash(ffmpeg -version)",
+      "Bash(curl -s -o /dev/null -w \"siemens-energy.png -> HTTP %{http_code}, %{size_download} bytes\\\\n\" \"http://localhost:5173/partners/siemens-energy.png\")",
+      "Bash(curl -s -o /dev/null -w \"pdf -> HTTP %{http_code} %{content_type}\\\\n\" \"http://localhost:5173/company-profile.pdf\")"
+    ]
+  }
+}

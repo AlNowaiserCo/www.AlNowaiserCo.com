@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------
+   Global base styles
+---------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchored scrolling so sticky navbar doesn't cover headings */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-cloud text-navy-light font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold tracking-tight text-navy;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Reusable component classes
+---------------------------------------------------------------- */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold
+      transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange
+      focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-orange text-white shadow-card hover:bg-orange-dark hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-white/80 text-white hover:bg-white hover:text-navy;
+  }
+
+  .btn-outline-navy {
+    @apply btn border-2 border-navy text-navy hover:bg-navy hover:text-white;
+  }
+
+  /* Section vertical rhythm */
+  .section {
+    @apply scroll-mt-20 py-20 md:py-28;
+  }
+
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  /* Small uppercase label that sits above a section heading */
+  .eyebrow {
+    @apply mb-3 inline-block text-sm font-bold uppercase tracking-[0.2em] text-orange;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Scroll-reveal utility (paired with useReveal hook)
+---------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slow, subtle "Ken Burns" zoom for the hero background image */
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 22s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-kenburns {
+    animation: none;
+  }
+}
