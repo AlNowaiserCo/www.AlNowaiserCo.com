@@ -32,20 +32,6 @@ export default function Footer() {
             Building excellence and delivering trust across construction, infrastructure, and
             trading projects throughout the Kingdom.
           </p>
-          <div className="mt-6 flex gap-3">
-            {company.socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                aria-label={s.label}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-orange"
-              >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d={socialIcon[s.label]} />
-                </svg>
-              </a>
-            ))}
-          </div>
         </div>
 
         {/* Quick links */}
