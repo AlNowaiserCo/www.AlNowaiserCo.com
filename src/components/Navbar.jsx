@@ -105,6 +105,13 @@ export default function Navbar() {
           </li>
 
           <li>
+            <Link to="/gallery" className={`${topItem} ${cls(pathname === '/gallery')}`}>
+              Gallery
+              <span className={underline(pathname === '/gallery')} />
+            </Link>
+          </li>
+
+          <li>
             <Link to="/careers" className={`${topItem} ${cls(pathname === '/careers')}`}>
               Careers
               <span className={underline(pathname === '/careers')} />
@@ -163,6 +170,11 @@ export default function Navbar() {
             items={OFFERING_ITEMS}
           />
 
+          <li>
+            <Link to="/gallery" className="block rounded-lg px-3 py-3 text-base font-medium text-navy hover:bg-cloud hover:text-orange">
+              Gallery
+            </Link>
+          </li>
           <li>
             <Link to="/careers" className="block rounded-lg px-3 py-3 text-base font-medium text-navy hover:bg-cloud hover:text-orange">
               Careers

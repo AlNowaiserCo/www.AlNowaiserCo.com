@@ -14,6 +14,7 @@ import OfferingPage from './pages/OfferingPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import Careers from './pages/Careers.jsx'
 import ApplyPage from './pages/ApplyPage.jsx'
+import GalleryPage from './pages/GalleryPage.jsx'
 
 // Reset scroll to the top whenever the route changes
 function ScrollToTop() {
@@ -41,6 +42,8 @@ export default function App() {
           {/* Our Offering */}
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/offering/:slug" element={<OfferingPage />} />
+          {/* Gallery */}
+          <Route path="/gallery" element={<GalleryPage />} />
           {/* Standalone */}
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/apply" element={<ApplyPage />} />
