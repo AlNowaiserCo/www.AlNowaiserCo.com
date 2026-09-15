@@ -33,10 +33,39 @@ export default {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        // Route-change transition — the page content eases up into place
+        'page-in': {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        // Dropdown menus grow in from just above their trigger
+        'menu-in': {
+          '0%': { opacity: '0', transform: 'translateY(-8px) scale(0.98)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        // Gentle floating loop for decorative accents
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        // Slow drifting glow behind hero / section headers
+        'pulse-glow': {
+          '0%, 100%': { opacity: '0.35', transform: 'scale(1)' },
+          '50%': { opacity: '0.6', transform: 'scale(1.15)' },
+        },
+        // Sheen sweep used on primary buttons
+        shimmer: {
+          '0%': { transform: 'translateX(-120%)' },
+          '100%': { transform: 'translateX(120%)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.7s ease-out forwards',
         'fade-in': 'fade-in 0.6s ease-out forwards',
+        'page-in': 'page-in 0.55s cubic-bezier(0.22, 1, 0.36, 1)',
+        'menu-in': 'menu-in 0.22s cubic-bezier(0.22, 1, 0.36, 1)',
+        float: 'float 6s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 8s ease-in-out infinite',
       },
     },
   },

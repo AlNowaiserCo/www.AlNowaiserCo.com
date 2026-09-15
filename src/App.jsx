@@ -25,14 +25,25 @@ function ScrollToTop() {
   return null
 }
 
+// Replays a soft ease-in animation on every route change
+function PageTransition({ children }) {
+  const { pathname } = useLocation()
+  return (
+    <div key={pathname} className="animate-page-in">
+      {children}
+    </div>
+  )
+}
+
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollToTop />
       <Navbar />
       <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
+        <PageTransition>
+          <Routes>
+            <Route path="/" element={<Home />} />
           {/* Our Company */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
@@ -44,11 +55,13 @@ export default function App() {
           <Route path="/offering/:slug" element={<OfferingPage />} />
           {/* Gallery */}
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/gallery/:slug" element={<GalleryPage />} />
           {/* Standalone */}
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/apply" element={<ApplyPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
+        </PageTransition>
       </main>
       <Footer />
       <Analytics />

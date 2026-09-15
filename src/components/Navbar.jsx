@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Logo from './Logo.jsx'
-import { services } from '../data/content.js'
+import { services, galleryCategories } from '../data/content.js'
 
 /* Multi-page menu:
    Home · Our Company ▾ · Our Offering ▾ · Careers · Contact Us
@@ -15,6 +15,8 @@ const COMPANY_ITEMS = [
 ]
 // "Our Offering" lists the services; each links to its own detail page.
 const OFFERING_ITEMS = services.map((s) => ({ to: `/offering/${s.slug}`, label: s.title }))
+// "Gallery" lists each photo category; each links to its own gallery page.
+const GALLERY_ITEMS = galleryCategories.map((c) => ({ to: `/gallery/${c.slug}`, label: c.title }))
 
 const COMPANY_PATHS = ['/about', '/projects', '/certificates', '/company-profile', '/qhse-policy']
 
@@ -48,6 +50,7 @@ export default function Navbar() {
 
   const companyActive = COMPANY_PATHS.includes(pathname)
   const offeringActive = pathname === '/services' || pathname.startsWith('/offering')
+  const galleryActive = pathname.startsWith('/gallery')
 
   const topItem = 'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-orange'
   const cls = (on) => (on ? 'text-orange' : 'text-navy')
@@ -104,11 +107,14 @@ export default function Navbar() {
             <DesktopDropdown items={OFFERING_ITEMS} />
           </li>
 
-          <li>
-            <Link to="/gallery" className={`${topItem} ${cls(pathname === '/gallery')}`}>
+          {/* Gallery */}
+          <li className="group relative">
+            <button className={`${topItem} inline-flex items-center gap-1 ${cls(galleryActive)}`} aria-haspopup="true">
               Gallery
-              <span className={underline(pathname === '/gallery')} />
-            </Link>
+              <Chevron className="transition-transform duration-300 group-hover:rotate-180" />
+              <span className={underline(galleryActive)} />
+            </button>
+            <DesktopDropdown items={GALLERY_ITEMS} />
           </li>
 
           <li>
@@ -170,11 +176,13 @@ export default function Navbar() {
             items={OFFERING_ITEMS}
           />
 
-          <li>
-            <Link to="/gallery" className="block rounded-lg px-3 py-3 text-base font-medium text-navy hover:bg-cloud hover:text-orange">
-              Gallery
-            </Link>
-          </li>
+          <MobileGroup
+            label="Gallery"
+            openState={mobileGroup === 'gallery'}
+            onToggle={() => setMobileGroup((g) => (g === 'gallery' ? null : 'gallery'))}
+            items={GALLERY_ITEMS}
+          />
+
           <li>
             <Link to="/careers" className="block rounded-lg px-3 py-3 text-base font-medium text-navy hover:bg-cloud hover:text-orange">
               Careers
@@ -194,13 +202,13 @@ export default function Navbar() {
 /* Desktop dropdown — clean white vertical list beneath the item */
 function DesktopDropdown({ items }) {
   return (
-    <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-      <ul className="min-w-[230px] overflow-hidden rounded-xl bg-white py-2 shadow-2xl ring-1 ring-black/5">
+    <div className="invisible absolute left-0 top-full z-50 -translate-y-1 pt-3 opacity-0 transition-all duration-200 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+      <ul className="min-w-[230px] origin-top overflow-hidden rounded-xl bg-white py-2 shadow-2xl ring-1 ring-black/5">
         {items.map((item) => (
           <li key={item.label}>
             <Link
               to={item.to}
-              className="block px-5 py-2.5 text-sm font-medium text-navy transition-colors hover:bg-cloud hover:text-orange"
+              className="block px-5 py-2.5 text-sm font-medium text-navy transition-colors duration-200 hover:bg-cloud hover:pl-6 hover:text-orange"
             >
               {item.label}
             </Link>

@@ -302,6 +302,57 @@ export const projects = [
 
 // ---- Certificates / accreditations ----
 // Replace `image` with your certificate scans (drop in /public/certificates).
+// ---- Gallery categories (each is a dropdown item with its own photos) ----
+export const galleryCategories = [
+  {
+    title: 'Power Transmission & Substation Construction',
+    slug: 'power-transmission-substation',
+    images: [
+      '/gallery/power-transmission-substation/pt-01.jpg',
+      '/gallery/power-transmission-substation/pt-02.jpg',
+      '/gallery/power-transmission-substation/pt-03.jpg',
+      '/gallery/power-transmission-substation/pt-04.jpg',
+      '/gallery/power-transmission-substation/pt-05.jpg',
+      '/gallery/power-transmission-substation/pt-06.jpg',
+      '/gallery/power-transmission-substation/pt-07.jpg',
+      '/gallery/power-transmission-substation/pt-08.jpg',
+      '/gallery/power-transmission-substation/pt-09.jpg',
+      '/gallery/power-transmission-substation/pt-10.jpg',
+      '/gallery/power-transmission-substation/pt-11.jpg',
+      '/gallery/power-transmission-substation/pt-12.jpg',
+      '/gallery/power-transmission-substation/pt-13.jpg',
+      '/gallery/power-transmission-substation/pt-14.jpg',
+      '/gallery/power-transmission-substation/pt-15.jpg',
+      '/gallery/power-transmission-substation/pt-16.jpg',
+      '/gallery/power-transmission-substation/pt-17.jpg',
+      '/gallery/power-transmission-substation/pt-18.jpg',
+      '/gallery/power-transmission-substation/pt-19.jpg',
+      '/gallery/power-transmission-substation/pt-20.jpg',
+      '/gallery/power-transmission-substation/pt-21.jpg',
+      '/gallery/power-transmission-substation/pt-22.jpg',
+      '/gallery/power-transmission-substation/pt-23.jpg',
+      '/gallery/power-transmission-substation/pt-24.jpg',
+      '/gallery/power-transmission-substation/pt-25.jpg',
+      '/gallery/power-transmission-substation/pt-26.jpg',
+      '/gallery/power-transmission-substation/pt-27.jpg',
+      '/gallery/power-transmission-substation/pt-28.jpg',
+      '/gallery/power-transmission-substation/pt-29.jpg',
+      '/gallery/power-transmission-substation/pt-30.jpg',
+      '/gallery/power-transmission-substation/pt-31.jpg',
+      '/gallery/power-transmission-substation/pt-32.jpg',
+      '/gallery/power-transmission-substation/pt-33.jpg',
+      '/gallery/power-transmission-substation/pt-34.jpg',
+      '/gallery/power-transmission-substation/pt-35.jpg',
+      '/gallery/power-transmission-substation/pt-36.jpg',
+      '/gallery/power-transmission-substation/pt-37.jpg',
+      '/gallery/power-transmission-substation/pt-38.jpg',
+      '/gallery/power-transmission-substation/pt-39.jpg',
+      '/gallery/power-transmission-substation/pt-40.jpg',
+      '/gallery/power-transmission-substation/pt-41.jpg',
+    ],
+  },
+]
+
 // Each certificate is a PDF (viewed in a lightbox / downloadable).
 export const certificates = [
   {
