@@ -372,6 +372,10 @@ export const certificates = [
     pdf: '/certificates/certificate-4.pdf',
   },
   {
+    title: 'Technical Completion Certificate',
+    pdf: '/certificates/certificate-13.pdf',
+  },
+  {
     title: 'Work Progress Certificate',
     pdf: '/certificates/certificate-5.pdf',
   },
