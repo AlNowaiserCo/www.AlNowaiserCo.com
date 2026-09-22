@@ -356,6 +356,10 @@ export const galleryCategories = [
 // Each certificate is a PDF (viewed in a lightbox / downloadable).
 export const certificates = [
   {
+    title: 'Technical Completion Certificate',
+    pdf: '/certificates/certificate-13.pdf',
+  },
+  {
     title: 'Completion Certificate',
     pdf: '/certificates/certificate-1.pdf',
   },
@@ -370,10 +374,6 @@ export const certificates = [
   {
     title: 'Completion Certificate',
     pdf: '/certificates/certificate-4.pdf',
-  },
-  {
-    title: 'Technical Completion Certificate',
-    pdf: '/certificates/certificate-13.pdf',
   },
   {
     title: 'Work Progress Certificate',
