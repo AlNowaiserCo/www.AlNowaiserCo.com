@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.alnowaiserco.com/sitemap.xml
+Sitemap: https://alnowaiserco.com/sitemap.xml
