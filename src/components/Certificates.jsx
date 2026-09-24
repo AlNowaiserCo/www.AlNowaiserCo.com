@@ -53,11 +53,8 @@ export default function Certificates() {
                     <ZoomIcon className="h-5 w-5" />
                   </span>
                 </button>
-                <div className="flex items-center justify-between gap-3 border-t border-slate-100 p-5">
+                <div className="border-t border-slate-100 p-5">
                   <h3 className="text-sm font-bold leading-snug">{cert.title}</h3>
-                  <a href={cert.pdf} download className="btn-outline-navy shrink-0 px-4 py-2 text-xs">
-                    Download
-                  </a>
                 </div>
               </div>
             </Reveal>
